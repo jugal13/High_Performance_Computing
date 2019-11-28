@@ -27,10 +27,9 @@ int main()
 #pragma omp parallel for
   for (i = 0; i < Noofelements; i = i + 1)
   {
+    #pragma omp critical
     if (array[i] > cur_max)
-#pragma omp critical
-      if (array[i] > cur_max)
-        cur_max = array[i];
+      cur_max = array[i];
   }
   current_value = array[0];
   for (i = 1; i < Noofelements; i++)
