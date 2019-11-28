@@ -1,4 +1,6 @@
-#include <omp.h> #include <stdio.h> #include <stdlib.h>
+#include <omp.h>
+#include <stdio.h>
+#include <stdlib.h>
 int main(int argc, char *argv[])
 {
   int nthreads, tid, procs, maxt, inpar, dynamic, nested;

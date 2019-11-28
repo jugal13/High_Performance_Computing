@@ -1,4 +1,3 @@
-
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +12,7 @@ int main(int argc, char *argv[])
     b[i] = i + 22.35;
     c[i] = d[i] = 0.0;
   }
-  #pragma omp parallel shared(a, b, c, d, nthreads) private(i, tid)
+#pragma omp parallel shared(a, b, c, d, nthreads) private(i, tid)
   {
     tid = omp_get_thread_num();
     if (tid == 0)
@@ -22,9 +21,9 @@ int main(int argc, char *argv[])
       printf("Number of threads = %d\n", nthreads);
     }
     printf("Thread %d starting...\n", tid);
-    #pragma omp sections nowait
+#pragma omp sections nowait
     {
-      #pragma omp section
+#pragma omp section
       {
         printf("Thread %d doing section 1\n", tid);
         for (i = 0; i < N; i++)
@@ -33,12 +32,12 @@ int main(int argc, char *argv[])
           printf("Thread %d: c[%d]= %f\n", tid, i, c[i]);
         }
       }
-      #pragma omp section
+#pragma omp section
       {
         printf("Thread %d doing section 2\n", tid);
         for (i = 0; i < N; i++)
         {
-          d[i] = a[i] * b[i];
+          d[i] = a[i] - b[i];
           printf("Thread %d: d[%d]= %f\n", tid, i, d[i]);
         }
       }

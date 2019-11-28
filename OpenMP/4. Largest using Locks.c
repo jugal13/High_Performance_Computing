@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #define MINUS_INFINITY -9999
 #define MAXIMUM_VALUE 65535
-int main()
+main()
 {
   int *array, i, Noofelements, cur_max, current_value;
   omp_lock_t MAXLOCK;
@@ -39,7 +39,6 @@ int main()
       omp_unset_lock(&MAXLOCK);
     }
   }
-
   omp_destroy_lock(&MAXLOCK);
   current_value = array[0];
   for (i = 1; i < Noofelements; i++)
@@ -48,7 +47,6 @@ int main()
   printf("The Array Elements Are \n");
   for (i = 0; i < Noofelements; i++)
     printf("\t%d", array[i]);
-
   if (current_value == cur_max)
     printf("\nThe Max Value Is Same For Serial And Using Parallel OpenMP Directive\n");
   else
@@ -56,7 +54,6 @@ int main()
     printf("\nThe Max Value Is Not Same In Serial And Using Parallel OpenMP Directive\n");
     exit(1);
   }
-
   free(array);
   printf("\nThe Largest Number Of The Array Is %d\n", cur_max);
 }

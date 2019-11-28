@@ -2,7 +2,7 @@
 #include <omp.h>
 #include <stdlib.h>
 #define MAXIMUM 65536
-int main()
+main()
 {
   int *array, i, Noofelements, cur_max, current_value;
   printf("Enter the number of elements\n");
@@ -27,9 +27,10 @@ int main()
 #pragma omp parallel for
   for (i = 0; i < Noofelements; i = i + 1)
   {
-    #pragma omp critical
     if (array[i] > cur_max)
-      cur_max = array[i];
+#pragma omp critical
+      if (array[i] > cur_max)
+        cur_max = array[i];
   }
   current_value = array[0];
   for (i = 1; i < Noofelements; i++)

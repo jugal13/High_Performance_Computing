@@ -1,7 +1,7 @@
 #include <stdio.h>
-// #include <malloc.h>
+#include <malloc.h>
 #include <omp.h>
-long int factorial(long n)
+long long factorial(long n)
 {
   long long i, out;
   out = 1;

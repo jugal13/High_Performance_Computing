@@ -3,11 +3,11 @@
 int a, b, i, tid;
 float x;
 #pragma omp threadprivate(a, x)
-int main()
+main()
 {
   omp_set_dynamic(0);
   printf("1st Parallel Region:\n");
-  #pragma omp parallel private(b, tid)
+#pragma omp parallel private(b, tid)
   {
     tid = omp_get_thread_num();
     a = tid;
@@ -19,7 +19,7 @@ int main()
   printf("Master thread doing serial work here\n");
   printf("************************************\n");
   printf("2nd Parallel Region:\n");
-  #pragma omp parallel private(tid)
+#pragma omp parallel private(tid)
   {
     tid = omp_get_thread_num();
     printf("Thread %d: a,b,x= %d %d %f\n", tid, a, b, x);
