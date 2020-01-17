@@ -1,5 +1,5 @@
 # HPC
 
-1. [Lab Externals](https://github.com/jugalw13/High_Performance_Computing/tree/master/Lab%20External)
+1. [Lab Externals](Lab&#32;External)
 
-2. [Lab Internals](https://github.com/jugalw13/High_Performance_Computing/tree/master/Lab%20Internal)
+2. [Lab Internals](Lab&#32;Internal)
